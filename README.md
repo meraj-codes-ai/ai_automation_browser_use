@@ -1,16 +1,4 @@
-Perfect 😎 — here’s your **final GitHub-optimized `README.md`**, fully refined, visually polished, and ready for publishing.
-
-This version includes:
-
-* ✅ A clean **Table of Contents**
-* ✅ GitHub-style **badges**
-* ✅ Consistent markdown hierarchy
-* ✅ Polished copywriting for professional presentation
-
----
-
-````markdown
-# 🤖 Browser-Use AI Automation
+# 🤖 AI Automation | Browser-Use AI Automation
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -20,9 +8,9 @@ This version includes:
 **AI-powered browser automation** that uses reasoning models to observe, interpret, and act intelligently inside real browser environments.  
 
 This project explores and compares three key automation approaches:
-- ⚙️ **Traditional Automation**
-- 🌐 **Browser-Use AI Automation**
-- 🧠 **Automation using MCPs (Model Context Protocol Servers)**
+⚙️ **Traditional Automation**
+🌐 **Browser-Use AI Automation**
+🧠 **Automation using MCPs (Model Context Protocol Servers)**
 
 ---
 
@@ -135,7 +123,22 @@ uv pip install browser-use
 
 # Download Chromium via Playwright
 uvx playwright install chromium --with-deps --no-shell
-````
+```
+
+PowerShell (skip if already installed):
+
+```powershell
+# Install 'browser-use' only if not already installed
+pip show browser-use *> $null
+if ($LASTEXITCODE -ne 0) {
+  pip install browser-use
+} else {
+  Write-Host "browser-use is already installed"
+}
+
+# Install Playwright Chromium (idempotent)
+playwright install chromium --with-deps
+```
 
 ---
 
@@ -276,4 +279,43 @@ BROWSER_USER_DATA="C:\Users\YourUsername\AppData\Local\Google\Chrome\User Data"
 
 ⭐ **Star this repo if you find it helpful!**
 
+```
+---
+
+## Option 3: n8n Installation (Windows)
+
+Automate multi-step workflows and orchestrate browser-use with external systems using n8n.
+
+Prerequisites:
+
+- Node.js 18+ LTS and npm installed
+
+Verify versions:
+
+```powershell
+node -v
+npm -v
+```
+
+Install n8n globally (skip if already installed):
+
+```powershell
+if (-not (Get-Command n8n -ErrorAction SilentlyContinue)) {
+  npm install -g n8n
+} else {
+  Write-Host "n8n is already installed"
+}
+```
+
+Run n8n locally:
+
+```powershell
+n8n start
+# then open http://localhost:5678
+```
+
+Docker alternative:
+
+```bash
+docker run -it --rm -p 5678:5678 n8nio/n8n
 ```
