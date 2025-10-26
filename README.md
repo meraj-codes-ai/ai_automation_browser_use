@@ -1,15 +1,10 @@
-# 🤖 AI Automation | Browser-Use AI Automation
-
-![Python](https://img.shields.io/badge/Python-3.11+-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Status](https://img.shields.io/badge/Build-Stable-brightgreen.svg)
-![Platform](https://img.shields.io/badge/Platform-Windows-blueviolet.svg)
+# 🤖 AI Automation
 
 **AI-powered browser automation** that uses reasoning models to observe, interpret, and act intelligently inside real browser environments.  
 
 This project explores and compares three key automation approaches:
 ⚙️ **Traditional Automation**
-🌐 **Browser-Use AI Automation**
+🌐 **AI Automation**
 🧠 **Automation using MCPs (Model Context Protocol Servers)**
 
 ---
@@ -18,15 +13,13 @@ This project explores and compares three key automation approaches:
 
 1. [Overview](#overview)
 2. [Traditional Automation](#1-traditional-automation)
-3. [Browser-Use AI Automation](#2-browser-use-ai-automation)
+3. [AI Automation](#2-browser-use-ai-automation)
 4. [Automation using MCPs](#3-automation-using-mcps-model-context-protocol-servers)
 5. [Comparison Table](#comparison-overview)
 6. [Getting Started](#-getting-started)
    - [Python SDK Installation](#option-1-python-sdk-installation)
    - [Web UI Installation (Windows)](#option-2-web-ui-installation-windows)
 7. [Example Use Cases](#-example-use-case)
-8. [Troubleshooting](#-quick-troubleshooting)
-9. [License](#-license)
 
 ---
 
@@ -51,7 +44,7 @@ Traditional automation uses **static scripts** and **fixed logic** to perform UI
 
 ---
 
-## 🌐 2. Browser-Use AI Automation
+## 🌐 2. AI Automation
 
 ### 🔹 Description
 Browser-Use AI automation allows an **AI agent** to navigate and act within a browser using **reasoning and perception**.  
@@ -84,7 +77,7 @@ MCP-based automation extends reasoning-driven automation into an **ecosystem of 
 
 ## ⚖️ Comparison Overview
 
-| **Feature** | **Traditional Automation** | **Browser-Use AI Automation** | **MCP-Based Automation** |
+| **Feature** | **Traditional Automation** | **AI Automation** | **MCP-Based Automation** |
 |--------------|----------------------------|-------------------------------|---------------------------|
 | **Logic Type** | Scripted (rule-based) | Goal-driven (AI reasoning) | Tool-based (modular reasoning) |
 | **Adaptability** | Low — fixed selectors | High — context-aware | High — modular APIs |
@@ -171,25 +164,6 @@ agent.run_sync()
 
 ---
 
-### ☁️ Cloud Mode (Stealth Browser)
-
-Use Browser-Use Cloud to bypass **Cloudflare** or other **anti-bot** protections.
-
-```python
-from browser_use import Agent, Browser, ChatBrowserUse
-
-browser = Browser(use_cloud=True)  # Cloud-based stealth browser
-
-agent = Agent(
-    task="Search for AI browser automation examples",
-    llm=ChatBrowserUse(),
-    browser=browser,
-)
-agent.run_sync()
-```
-
----
-
 ## 💻 Option 2: Web UI Installation (Windows)
 
 Run the **Browser-Use Web UI** locally to manage and visualize automation agents.
@@ -260,62 +234,5 @@ BROWSER_USER_DATA="C:\Users\YourUsername\AppData\Local\Google\Chrome\User Data"
 | Approach                      | Behavior                                                            |
 | ----------------------------- | ------------------------------------------------------------------- |
 | **Traditional Automation**    | Static script logs in and downloads file.                           |
-| **Browser-Use AI Automation** | AI finds login dynamically, extracts report, handles layout shifts. |
+| **AI Automation** | AI finds login dynamically, extracts report, handles layout shifts. |
 | **MCP Automation**            | Browser MCP fetches report → Email MCP sends it automatically.      |
-
----
-
-## 🧰 Quick Troubleshooting
-
-| **Issue**                | **Possible Fix**                                 |
-| ------------------------ | ------------------------------------------------ |
-| Chromium not launching   | Run `playwright install chromium --with-deps`    |
-| Invalid API key          | Verify `BROWSER_USE_API_KEY` in `.env`           |
-| Port 7788 already in use | Run with `--port 7790`                           |
-| Cloudflare blocking      | Use `use_cloud=True`                             |
-| Web UI not opening       | Ensure venv is active and dependencies installed |
-
----
-
-⭐ **Star this repo if you find it helpful!**
-
-```
----
-
-## Option 3: n8n Installation (Windows)
-
-Automate multi-step workflows and orchestrate browser-use with external systems using n8n.
-
-Prerequisites:
-
-- Node.js 18+ LTS and npm installed
-
-Verify versions:
-
-```powershell
-node -v
-npm -v
-```
-
-Install n8n globally (skip if already installed):
-
-```powershell
-if (-not (Get-Command n8n -ErrorAction SilentlyContinue)) {
-  npm install -g n8n
-} else {
-  Write-Host "n8n is already installed"
-}
-```
-
-Run n8n locally:
-
-```powershell
-n8n start
-# then open http://localhost:5678
-```
-
-Docker alternative:
-
-```bash
-docker run -it --rm -p 5678:5678 n8nio/n8n
-```

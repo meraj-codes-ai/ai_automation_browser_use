@@ -1,0 +1,15 @@
+.env
+.env.*
+*.env
+__pycache__/
+.venv/
+venv/
+node_modules/
+*.log
+*.pem
+*.p12
+*.pfx
+*.cer
+*.der
+.DS_Store
+Thumbs.db
